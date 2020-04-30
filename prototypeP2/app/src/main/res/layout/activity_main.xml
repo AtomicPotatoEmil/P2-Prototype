@@ -49,35 +49,34 @@
         android:id="@+id/statisticsPanel"
         android:layout_width="340dp"
         android:layout_height="170dp"
+        android:gravity="center"
         android:background="@color/DARKBLUE"
-        android:layout_centerHorizontal="false"
         android:layout_marginTop="350dp"
         android:layout_marginLeft="10dp"
         android:orientation="horizontal">
 
         <View
-            android:layout_width="50dp"
+            android:layout_width="45dp"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="45dp"
             android:layout_height="match_parent" />
 
         <View
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent" />
 
         <View
-            android:layout_width="50dp"
-            android:layout_height="match_parent" />
-
-        <View
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent" />
         <View
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent" />
         <View
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent" />
         <View
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -92,32 +91,29 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:text="Mo"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:padding="5dp"
             android:textColor="@color/MINTWHITEd"
             android:textSize="23sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:text="Tu"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:padding="5dp"
             android:textColor="@color/MINTWHITEd"
             android:textSize="23sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:padding="5dp"
             android:text="We"
             android:textAlignment="center"
             android:textColor="@color/MINTWHITEd"
@@ -125,45 +121,40 @@
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:text="Th"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:padding="5dp"
             android:textColor="@color/MINTWHITEd"
             android:textSize="23sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:text="Fr"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:padding="5dp"
             android:textColor="@color/MINTWHITEd"
             android:textSize="23sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:text="Sa"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:padding="5dp"
             android:textColor="@color/MINTWHITEd"
             android:textSize="23sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:text="Su"
-            android:layout_gravity="center"
             android:textAlignment="center"
-            android:padding="5dp"
             android:textColor="@color/MINTWHITEd"
             android:textSize="23sp"
             android:textStyle="bold" />
