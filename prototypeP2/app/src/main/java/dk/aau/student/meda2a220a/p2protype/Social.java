@@ -64,16 +64,19 @@ private Button addFriendButton;
     }
 
     public TextView createNewFriendView(String logInfo, int textSize){ //Title being the exercise, and subtitle being the weight lifted.
-        final LinearLayout.LayoutParams FriendViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        final LinearLayout.LayoutParams FriendViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         final TextView newFriendTextview = new TextView(this);
         newFriendTextview.setTextSize(textSize);
         newFriendTextview.setLayoutParams(FriendViewParams);
         newFriendTextview.setText(logInfo);
         newFriendTextview.setTextColor(getResources().getColor(R.color.MINTWHITEd));
+
         return newFriendTextview;
     }
+
     @Override
     public void applyAddition(String userNameString) {
-        addFriendLayout.addView(createNewFriendView(userNameString,35));
+        addFriendLayout.addView(createNewFriendView(userNameString,20));
+
     }
 }
