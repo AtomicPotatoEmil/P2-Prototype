@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/GameActivities"
+        android:title="GameActivities"
+        android:icon="@drawable/ic_dashboard"/>
+
+    <item
+        android:id="@+id/OnlineStatistics"
+        android:title="Online Statistics"
+        android:icon="@drawable/ic_dashboard"/>
+
+    <item
+        android:id="@+id/Social"
+        android:title="Social"
+        android:icon="@drawable/ic_dashboard"/>
+
+</menu>
