@@ -4,15 +4,15 @@
     <color name="CADETBLUE">#39A2AE</color>
 
 <!--JETBLACK-->
-    <color name="JET">2A2B2A</color>
+    <color name="JET">#2A2B2A</color>
 
 <!--MIDNIGHT GREEN (dark BLUE)    -->
     <color name="DARKBLUE">#114B5F</color>
 
 <!--Mint cream white-->
-    <color name="MINTWHITEd">F7FFF7</color>
+    <color name="MINTWHITEd">#F7FFF7</color>
 
 <!--Red Crayola-->
-    <color name="RED">ED254E</color>
+    <color name="RED">#ED254E</color>
 </resources>
 
