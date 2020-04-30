@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+<!--СADET Blue-->
+    <color name="CADETBLUE">#39A2AE</color>
+
+<!--JETBLACK-->
+    <color name="JET">2A2B2A</color>
+
+<!--MIDNIGHT GREEN (dark BLUE)    -->
+    <color name="DARKBLUE">#114B5F</color>
+
+<!--Mint cream white-->
+    <color name="MINTWHITEd">F7FFF7</color>
+
+<!--Red Crayola-->
+    <color name="RED">ED254E</color>
 </resources>
+
