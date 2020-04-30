@@ -4,19 +4,29 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.wifi.aware.PublishConfig;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Social extends AppCompatActivity implements AddFriendDialog.AddFriendListener {
 
+public static final String profileNameSave = "PROFILENAMESAVE";
+public static final String profileSaveKey = "PROFILESAVEKEY";
+
+
 private LinearLayout addFriendLayout;
 private Button addFriendButton;
+private EditText setProfileName;
+private Button saveNameButton;
 
 
     @Override
@@ -56,6 +66,24 @@ private Button addFriendButton;
                 newFriend();
             }
         });
+        saveNameButton = findViewById(R.id.saveUserNameButtonID);
+        saveNameButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                saveUsername();
+
+            }
+
+        });
+        setProfileName = findViewById(R.id.YourUserName);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        loadUsername();
     }
 
     public void newFriend (){
@@ -79,4 +107,25 @@ private Button addFriendButton;
         addFriendLayout.addView(createNewFriendView(userNameString,20));
 
     }
+    private void saveUsername() {
+
+        SharedPreferences sharedPrefUserName = getSharedPreferences(profileNameSave, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefUserName.edit();
+
+        editor.putString(profileSaveKey, setProfileName.getText().toString());
+        editor.apply();
+        Toast.makeText(this, "Profile name: "+setProfileName.getText().toString() + " saved!", Toast.LENGTH_LONG).show();
+
+
+    }
+    private void loadUsername(){
+
+        SharedPreferences sharedPreferences = getSharedPreferences(profileNameSave, MODE_PRIVATE);
+        String prefSaveName = sharedPreferences.getString(profileSaveKey, getString(R.string.noUsername));
+
+        setProfileName.setText(prefSaveName);
+
+
+    }
+
 }

@@ -63,6 +63,21 @@
         android:textColorHint="#7BF7FFF7"
         android:textColorLink="@color/JET" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/YourUserName"
+        android:text="Save"
+        android:layout_alignBaseline="@id/YourUserName"
+        android:textSize="18sp"
+        android:background="@color/RED"
+        android:textColor="@color/MINTWHITEd"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/saveUserNameButtonID"
+
+        />
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -92,6 +107,7 @@
     android:textSize="18sp"
     android:id="@+id/addFriendButtonID"
     android:layout_marginBottom="25dp"
+    android:textColor="@color/MINTWHITEd"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
