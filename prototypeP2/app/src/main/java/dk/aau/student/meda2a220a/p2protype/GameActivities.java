@@ -3,7 +3,7 @@ package dk.aau.student.meda2a220a.p2protype;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class GameActivities extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
