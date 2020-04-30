@@ -54,10 +54,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/YourUserNameTitle"
         android:layout_marginLeft="20dp"
+        android:cursorVisible="false"
         android:hint="Set your profile name"
+        android:singleLine="true"
+        android:text="@string/noUsername"
         android:textColor="@color/MINTWHITEd"
         android:textColorHighlight="@color/JET"
-        android:singleLine="true"
         android:textColorHint="#7BF7FFF7"
         android:textColorLink="@color/JET" />
 
