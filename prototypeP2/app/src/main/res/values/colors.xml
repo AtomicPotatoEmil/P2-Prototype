@@ -12,10 +12,22 @@
 <!--MIDNIGHT GREEN (dark BLUE)    -->
     <color name="DARKBLUE">#114B5F</color>
 
+<!--EVEN DARKER BLUE-->
+    <color name="EVENDARKERBLUE">#0D3948</color>
+
 <!--Mint cream white-->
     <color name="MINTWHITEd">#F7FFF7</color>
 
 <!--Red Crayola-->
     <color name="RED">#ED254E</color>
+
+<!--GREEN-->
+    <color name="GREEN">#00A651</color>
+
+<!--YELLOW-->
+    <color name="YELLOW">#FFBA00</color>
+
+<!--RED-->
+    <color name="NORMRED">#BD1A1A</color>
 </resources>
 

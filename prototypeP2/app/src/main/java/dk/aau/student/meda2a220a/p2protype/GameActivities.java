@@ -1,6 +1,9 @@
 package dk.aau.student.meda2a220a.p2protype;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
@@ -59,11 +62,18 @@ public class GameActivities extends AppCompatActivity {
         ProgressBar progressBarSa = (ProgressBar) findViewById(R.id.progressBarSa);
         ProgressBar progressBarSu = (ProgressBar) findViewById(R.id.progressBarSu);
         progressBarMo.setProgress(10);
+        progressBarMo.setProgressTintList(ColorStateList.valueOf(Color.RED));
         progressBarTu.setProgress(20);
-        progressBarWe.setProgress(30);
-        progressBarTh.setProgress(40);
-        progressBarFr.setProgress(50);
-        progressBarSa.setProgress(60);
-        progressBarSu.setProgress(70);
+        progressBarTu.setProgressTintList(ColorStateList.valueOf(Color.RED));
+        progressBarWe.setProgress(40);
+        progressBarWe.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        progressBarTh.setProgress(60);
+        progressBarTh.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        progressBarFr.setProgress(80);
+        progressBarFr.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+        progressBarSa.setProgress(90);
+        progressBarSa.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+        progressBarSu.setProgress(100);
+        progressBarSu.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
     }
 }
