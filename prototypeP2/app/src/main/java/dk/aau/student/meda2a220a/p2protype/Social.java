@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.wifi.aware.PublishConfig;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +24,13 @@ public static final String profileNameSave = "PROFILENAMESAVE";
 public static final String profileSaveKey = "PROFILESAVEKEY";
 
 
-private LinearLayout addFriendLayout;
+private RelativeLayout addFriendLayout;
 private Button addFriendButton;
 private EditText setProfileName;
 private Button saveNameButton;
+TextView putFriendName;
+private RelativeLayout social_Layout;
+
 
 
     @Override
@@ -58,6 +62,9 @@ private Button saveNameButton;
                 return false;
             }
         });
+        putFriendName = findViewById(R.id.putFriendHere);
+        social_Layout = findViewById(R.id.socialLayout);
+
         addFriendLayout = findViewById(R.id.FriendLayout);
         addFriendButton = findViewById(R.id.addFriendButtonID);
         addFriendButton.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +83,8 @@ private Button saveNameButton;
 
         });
         setProfileName = findViewById(R.id.YourUserName);
+
+
     }
 
 
@@ -89,24 +98,29 @@ private Button saveNameButton;
     public void newFriend (){
         AddFriendDialog newFriendDialog = new AddFriendDialog();
         newFriendDialog.show(getSupportFragmentManager(), "New Friend");
+
     }
 
-    public TextView createNewFriendView(String logInfo, int textSize){ //Title being the exercise, and subtitle being the weight lifted.
-        final LinearLayout.LayoutParams FriendViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+
+    public TextView createNewFriendView(String friendInfo, int textSize){ //Title being the exercise, and subtitle being the weight lifted.
+        final RelativeLayout.LayoutParams FriendViewParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         final TextView newFriendTextview = new TextView(this);
         newFriendTextview.setTextSize(textSize);
         newFriendTextview.setLayoutParams(FriendViewParams);
-        newFriendTextview.setText(logInfo);
+        newFriendTextview.setText(friendInfo);
         newFriendTextview.setTextColor(getResources().getColor(R.color.MINTWHITEd));
 
         return newFriendTextview;
     }
 
+
+
     @Override
     public void applyAddition(String userNameString) {
         addFriendLayout.addView(createNewFriendView(userNameString,20));
-
     }
+
     private void saveUsername() {
 
         SharedPreferences sharedPrefUserName = getSharedPreferences(profileNameSave, MODE_PRIVATE);

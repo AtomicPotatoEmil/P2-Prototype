@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:id="@+id/friendAttributes">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:background="@color/DARKBLUE" />
+
+    <TextView
+        android:id="@+id/onlineStatusView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/StatusBarTitle"
+        android:layout_toRightOf="@id/putFriendHere"
+        android:paddingLeft="50dp"
+        android:paddingRight="20dp"
+        android:text="Online"
+        android:textColor="#22C122"
+
+        />
+
+    <TextView
+        android:id="@+id/putFriendHere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter Username"
+        android:textColor="@color/MINTWHITEd"
+        android:textColorHint="#B7FFFFFF"
+        android:layout_centerVertical="true"
+        android:paddingLeft="20dp"
+        />
+
+
+    <TextView
+        android:id="@+id/StatusBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:paddingRight="20dp"
+        android:text="Status:"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/putFriendHere"
+        android:paddingLeft="50dp"
+        android:textColor="@color/MINTWHITEd"
+
+
+        />
+
+</RelativeLayout>
