@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#1F1F1F</color>
+    <color name="colorPrimaryDark">#39A2AE</color>
+    <color name="colorAccent">#D81B60</color>
 <!--СADET Blue-->
     <color name="CADETBLUE">#39A2AE</color>
 
