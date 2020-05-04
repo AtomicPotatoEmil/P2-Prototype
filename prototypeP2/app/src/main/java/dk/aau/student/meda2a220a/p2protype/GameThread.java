@@ -8,7 +8,8 @@ public class GameThread extends Thread{
     private GameView gameView;
     private boolean gameActive;
     public static Canvas canvas;
-    private int targetFPS = 60;
+    private int targetFPS = 30;
+    private double averageFPS;
 
     public GameThread(SurfaceHolder surfaceHolder, GameView gameView){
         super();
@@ -18,7 +19,6 @@ public class GameThread extends Thread{
 
     @Override
     public void run() {
-        super.run();
         long startTime;
         long timeMillis;
         long waitTime;
@@ -27,8 +27,8 @@ public class GameThread extends Thread{
         long targetTime = 1000 / targetFPS;
 
         while (gameActive){
-            canvas = null;
             startTime = System.nanoTime();
+            canvas = null;
             try {
                 canvas = this.surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder){
@@ -38,7 +38,7 @@ public class GameThread extends Thread{
             }catch (Exception e){
                 e.printStackTrace();
             }finally {
-                if (canvas == null){
+                if (canvas != null){
                     try {
                         surfaceHolder.unlockCanvasAndPost(canvas);
                     }catch (Exception e){
@@ -49,6 +49,7 @@ public class GameThread extends Thread{
             timeMillis = (System.nanoTime() - startTime) / 1000000;
             waitTime = targetTime - timeMillis;
 
+
             try {
                 this.sleep(waitTime);
             }catch (Exception e){
@@ -58,13 +59,15 @@ public class GameThread extends Thread{
             totalTime += System.nanoTime() - startTime;
             frameCount++;
             if (frameCount == targetFPS){
+                averageFPS = 1000 / ((totalTime / frameCount) / 1000000);
                 frameCount = 0;
                 totalTime = 0;
+                System.out.println(averageFPS);
             }
         }
     }
 
-    public void setGameActive(boolean gameActive){
-        this.gameActive = gameActive;
+    public void setGameActive(boolean isGameActive){
+        gameActive = isGameActive;
     }
 }
