@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -24,7 +26,7 @@ public static final String profileNameSave = "PROFILENAMESAVE";
 public static final String profileSaveKey = "PROFILESAVEKEY";
 
 
-private RelativeLayout addFriendLayout;
+private LinearLayout addFriendLayout;
 private Button addFriendButton;
 private EditText setProfileName;
 private Button saveNameButton;
@@ -99,12 +101,14 @@ private RelativeLayout social_Layout;
         AddFriendDialog newFriendDialog = new AddFriendDialog();
         newFriendDialog.show(getSupportFragmentManager(), "New Friend");
 
+//        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+//        inflater.inflate(R.layout.addfriendattributes, (ViewGroup) findViewById(R.id.FriendLayout));
     }
 
 
 
     public TextView createNewFriendView(String friendInfo, int textSize){ //Title being the exercise, and subtitle being the weight lifted.
-        final RelativeLayout.LayoutParams FriendViewParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        final LinearLayout.LayoutParams FriendViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         final TextView newFriendTextview = new TextView(this);
         newFriendTextview.setTextSize(textSize);
         newFriendTextview.setLayoutParams(FriendViewParams);

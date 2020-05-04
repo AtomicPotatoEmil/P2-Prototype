@@ -85,14 +85,14 @@
         android:layout_below="@id/YourUserName"
         >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/FriendLayout"
             android:padding="25dp">
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </ScrollView>
 <Button
