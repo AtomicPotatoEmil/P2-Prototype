@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">P2-prototype</string>
-    <string name="noUsername">  </string>
+    <string name="noUsername"></string>
 
 </resources>
