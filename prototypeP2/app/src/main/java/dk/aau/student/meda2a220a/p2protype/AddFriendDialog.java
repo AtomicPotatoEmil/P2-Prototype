@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,8 +19,11 @@ import java.util.Objects;
 public class AddFriendDialog extends AppCompatDialogFragment {
 
         private EditText editName;
+        private EditText putFriendHere;
 
         private AddFriendListener addFriendListener;
+
+        private String enteredUsername;
 
         @NonNull
         @Override
@@ -28,6 +32,10 @@ public class AddFriendDialog extends AppCompatDialogFragment {
 
             LayoutInflater logInflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
             View inflatedFriendView = logInflater.inflate(R.layout.addfrienddialog, null);
+            View inflatedFriendViewTwo = logInflater.inflate(R.layout.addfriendattributes, null);
+
+            editName = inflatedFriendView.findViewById(R.id.friendNameEditText);
+            putFriendHere = inflatedFriendViewTwo.findViewById(R.id.putFriendHere);
 
             logBuilder.setView(inflatedFriendView)
                     .setTitle("Enter Username")
@@ -42,26 +50,17 @@ public class AddFriendDialog extends AppCompatDialogFragment {
                         public void onClick(DialogInterface dialog, int which) {
 
                             String userNameString = editName.getText().toString();
-
-
+                            putFriendHere.setText(userNameString);
                             addFriendListener.applyAddition(userNameString); //Applying user-defined strings from dialog window to applyAddition-method in Social-class
 
                         }
                     });
-
-            editName = inflatedFriendView.findViewById(R.id.friendNameEditText);
-
-
-
             return logBuilder.create();
-
-
         }
 
         @Override
         public void onAttach(@NonNull Context context) {
             super.onAttach(context);
-
             try {
                 addFriendListener = (AddFriendListener) context;
             } catch (ClassCastException e) {
@@ -71,12 +70,7 @@ public class AddFriendDialog extends AppCompatDialogFragment {
 
         public interface AddFriendListener {
             void applyAddition(String userNameString); //Override in Social-Class
-
-
         }
-
-
-
     }
 
 

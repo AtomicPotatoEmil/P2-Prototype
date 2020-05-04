@@ -101,8 +101,8 @@ private RelativeLayout social_Layout;
         AddFriendDialog newFriendDialog = new AddFriendDialog();
         newFriendDialog.show(getSupportFragmentManager(), "New Friend");
 
-//        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-//        inflater.inflate(R.layout.addfriendattributes, (ViewGroup) findViewById(R.id.FriendLayout));
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.addfriendattributes, (ViewGroup) findViewById(R.id.FriendLayout));
     }
 
 
@@ -114,7 +114,6 @@ private RelativeLayout social_Layout;
         newFriendTextview.setLayoutParams(FriendViewParams);
         newFriendTextview.setText(friendInfo);
         newFriendTextview.setTextColor(getResources().getColor(R.color.MINTWHITEd));
-
         return newFriendTextview;
     }
 
