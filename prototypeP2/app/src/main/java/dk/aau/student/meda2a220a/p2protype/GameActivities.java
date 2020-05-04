@@ -6,7 +6,9 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
@@ -17,6 +19,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class GameActivities extends AppCompatActivity {
 
+    private Button playButtonOne;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,8 @@ public class GameActivities extends AppCompatActivity {
         // Initializing views of the progress bars
         InitializeProgressBars();
 
+        Button playButtonOne = (Button) findViewById(R.id.playButtonOne);
+
         Spinner dropDownMenuOne = (Spinner) findViewById(R.id.dropDownMenuOne);
         Spinner dropDownMenuTwo = (Spinner) findViewById(R.id.dropDownMenuTwo);
         Spinner dropDownMenuThree = (Spinner) findViewById(R.id.dropDownMenuThree);
@@ -34,6 +40,14 @@ public class GameActivities extends AppCompatActivity {
         dropDownMenuOne.setAdapter(myAdapter);
         dropDownMenuTwo.setAdapter(myAdapter);
         dropDownMenuThree.setAdapter(myAdapter);
+
+
+        playButtonOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GameActivities.this, InitiateGameActivity.class));
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
