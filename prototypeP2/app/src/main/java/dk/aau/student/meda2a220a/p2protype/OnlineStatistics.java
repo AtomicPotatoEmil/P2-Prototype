@@ -26,12 +26,12 @@ public class OnlineStatistics extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
+                    case R.id.OnlineStatistics:
+                        return true;
                     case R.id.GameActivities:
                         startActivity(new Intent(getApplicationContext()
                                 ,GameActivities.class));
                         overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.OnlineStatistics:
                         return true;
                     case R.id.Social:
                         startActivity(new Intent(getApplicationContext()

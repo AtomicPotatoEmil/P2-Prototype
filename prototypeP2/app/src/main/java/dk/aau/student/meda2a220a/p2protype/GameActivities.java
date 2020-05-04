@@ -57,12 +57,12 @@ public class GameActivities extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.GameActivities:
-                        return true;
                     case R.id.OnlineStatistics:
                         startActivity(new Intent(getApplicationContext()
                                 ,OnlineStatistics.class));
                         overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.GameActivities:
                         return true;
                     case R.id.Social:
                         startActivity(new Intent(getApplicationContext()

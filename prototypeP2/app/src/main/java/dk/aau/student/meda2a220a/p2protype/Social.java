@@ -51,14 +51,14 @@ private RelativeLayout social_Layout;
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.GameActivities:
-                        startActivity(new Intent(getApplicationContext()
-                                ,GameActivities.class));
-                        overridePendingTransition(0, 0);
-                        return true;
                     case R.id.OnlineStatistics:
                         startActivity(new Intent(getApplicationContext()
                                 ,OnlineStatistics.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.GameActivities:
+                        startActivity(new Intent(getApplicationContext()
+                                ,GameActivities.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.Social:
