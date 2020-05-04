@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.w3c.dom.Text;
+
 public class Social extends AppCompatActivity implements AddFriendDialog.AddFriendListener {
 
 public static final String profileNameSave = "PROFILENAMESAVE";
@@ -101,27 +103,36 @@ private RelativeLayout social_Layout;
         AddFriendDialog newFriendDialog = new AddFriendDialog();
         newFriendDialog.show(getSupportFragmentManager(), "New Friend");
 
+
+    }
+
+
+
+//    public TextView createNewFriendView(String friendInfo, int textSize){ //Title being the exercise, and subtitle being the weight lifted.
+//        final LinearLayout.LayoutParams FriendViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+//        final TextView newFriendTextview = new TextView(this);
+//        newFriendTextview.setTextSize(textSize);
+//        newFriendTextview.setLayoutParams(FriendViewParams);
+//        newFriendTextview.setText(friendInfo);
+//        newFriendTextview.setTextColor(getResources().getColor(R.color.MINTWHITEd));
+//        return newFriendTextview;
+//    }
+
+    public void test(String usernamestring){
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.addfriendattributes, (ViewGroup) findViewById(R.id.FriendLayout));
+        TextView putfriend = findViewById(R.id.putFriendHere);
+        putfriend.setText(usernamestring);
+
+
+
     }
-
-
-
-    public TextView createNewFriendView(String friendInfo, int textSize){ //Title being the exercise, and subtitle being the weight lifted.
-        final LinearLayout.LayoutParams FriendViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        final TextView newFriendTextview = new TextView(this);
-        newFriendTextview.setTextSize(textSize);
-        newFriendTextview.setLayoutParams(FriendViewParams);
-        newFriendTextview.setText(friendInfo);
-        newFriendTextview.setTextColor(getResources().getColor(R.color.MINTWHITEd));
-        return newFriendTextview;
-    }
-
-
 
     @Override
     public void applyAddition(String userNameString) {
-        addFriendLayout.addView(createNewFriendView(userNameString,20));
+//        addFriendLayout.addView(createNewFriendView(userNameString,20));
+
+        test(userNameString);
     }
 
     private void saveUsername() {
