@@ -11,9 +11,12 @@
             android:theme="@style/AppTheme">
         <activity android:name=".InitiateGameActivity"
                   android:screenOrientation="landscape"/>
-        <activity android:name=".OnlineStatistics"/>
-        <activity android:name=".Social"/>
-        <activity android:name=".GameActivities">
+        <activity android:name=".OnlineStatistics"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Social"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GameActivities"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
