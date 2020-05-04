@@ -6,7 +6,9 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +26,14 @@ public class GameActivities extends AppCompatActivity {
         // Initializing views of the progress bars
         InitializeProgressBars();
 
-        // Setting values of the progress bars
-
+        Spinner dropDownMenuOne = (Spinner) findViewById(R.id.dropDownMenuOne);
+        Spinner dropDownMenuTwo = (Spinner) findViewById(R.id.dropDownMenuTwo);
+        Spinner dropDownMenuThree = (Spinner) findViewById(R.id.dropDownMenuThree);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(GameActivities.this, R.layout.spinner_item, getResources().getStringArray(R.array.dropDownMenuItems));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dropDownMenuOne.setAdapter(myAdapter);
+        dropDownMenuTwo.setAdapter(myAdapter);
+        dropDownMenuThree.setAdapter(myAdapter);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

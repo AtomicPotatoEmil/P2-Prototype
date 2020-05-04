@@ -8,6 +8,7 @@
     android:background="@color/JET"
     tools:context=".GameActivities">
 
+
     <LinearLayout
         android:id="@+id/statisticsPanel"
         android:layout_width="350dp"
@@ -274,7 +275,7 @@
 
                 <TextView
                     android:id="@+id/textTitleOneIntensity"
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
@@ -294,7 +295,7 @@
 
                 <TextView
                     android:id="@+id/textTitleOneTime"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
@@ -302,7 +303,7 @@
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:text="FASTEST TIME"
-                    android:textAlignment="textStart"
+                    android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
                     android:textStyle="bold"
@@ -338,34 +339,30 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="RtlCompat" />
 
-                <TextView
-                    android:id="@+id/customIntensityPanelOne"
-                    android:layout_width="100dp"
+                <Spinner
+                    android:id="@+id/dropDownMenuOne"
+                    style="@style/Spinner"
+                    android:layout_width="120dp"
                     android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_weight="1"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:text="Drop-Down-Menu"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
+                    android:gravity="center"
+                    android:popupBackground="@color/CADETBLUE"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner_bg"
+                    android:textColor="@color/MINTWHITEd" />
 
                 <TextView
                     android:id="@+id/customTimePanelOne"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:text="N/A"
-                    android:textAlignment="textStart"
+                    android:textAlignment="inherit"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
                     android:visibility="visible"
@@ -404,7 +401,7 @@
 
                 <TextView
                     android:id="@+id/textTitleTwoIntensity"
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
@@ -424,7 +421,7 @@
 
                 <TextView
                     android:id="@+id/textTitleTwoTime"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
@@ -432,7 +429,7 @@
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:text="FASTEST TIME"
-                    android:textAlignment="textStart"
+                    android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
                     android:textStyle="bold"
@@ -468,23 +465,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="RtlCompat" />
 
-                <TextView
-                    android:id="@+id/customIntensityPanelTwo"
-                    android:layout_width="100dp"
+                <Spinner
+                    android:id="@+id/dropDownMenuTwo"
+                    style="@style/Spinner"
+                    android:layout_width="120dp"
                     android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_weight="1"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:text="Drop-Down-Menu"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
+                    android:gravity="center"
+                    android:popupBackground="@color/CADETBLUE"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner_bg"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/MINTWHITEd" />
 
                 <TextView
                     android:id="@+id/customTimePanelTwo"
@@ -495,7 +489,7 @@
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:text="N/A"
-                    android:textAlignment="textStart"
+                    android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
                     android:visibility="visible"
@@ -540,7 +534,7 @@
 
                 <TextView
                     android:id="@+id/textTitleThreeIntensity"
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
@@ -560,7 +554,7 @@
 
                 <TextView
                     android:id="@+id/textTitleThreeTime"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
@@ -568,8 +562,7 @@
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:text="FASTEST TIME"
-                    android:textAlignment="textStart"
-
+                    android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
                     android:textStyle="bold"
@@ -605,23 +598,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="RtlCompat" />
 
-                <TextView
-                    android:id="@+id/customIntensityPanelThree"
-                    android:layout_width="100dp"
+                <Spinner
+                    android:id="@+id/dropDownMenuThree"
+                    style="@style/Spinner"
+                    android:layout_width="120dp"
                     android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_weight="1"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:text="Drop-Down-Menu"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
+                    android:gravity="center"
+                    android:popupBackground="@color/CADETBLUE"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner_bg"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/MINTWHITEd" />
 
                 <TextView
                     android:id="@+id/customTimePanelThree"
@@ -632,7 +622,7 @@
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:text="N/A"
-                    android:textAlignment="textStart"
+                    android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
                     android:visibility="visible"
