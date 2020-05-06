@@ -40,8 +40,8 @@
 
     <TextView
         android:id="@+id/rectangle_at_the_top4"
-        android:layout_width="366dp"
-        android:layout_height="246dp"
+        android:layout_width="285dp"
+        android:layout_height="208dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="72dp"
         android:background="@color/DARKBLUE"
@@ -56,29 +56,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_width="367dp"
-        android:layout_height="57dp"
+        android:id="@+id/button"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="328dp"
+        android:layout_marginTop="284dp"
         android:background="@color/CADETBLUE"
         android:gravity="center"
-        android:text="ILLUSTRATION OF HOW TO PLAY"
+        android:text="PLAY"
         android:textColor="@color/MINTWHITEd"
         android:textSize="45dp"
+        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="300dp"
-        android:layout_height="255dp"
+        android:layout_height="215dp"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_marginLeft="360dp"
-        android:layout_marginTop="105dp"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="110dp"
         android:background="@color/DARKBLUE"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,51 +91,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/rectangleTutorial"
                 android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:textColor="@color/MINTWHITEd"
-                android:textSize="20sp"
+                android:layout_height="50dp"
+                android:background="@color/DARKBLUE"
                 android:padding="5dp"
                 android:text="1. Keep arms straight throughout the whole exercise."
-                android:background="@color/DARKBLUE"
+                android:textColor="@color/MINTWHITEd"
+                android:textSize="15sp"
                 android:visibility="visible" />
 
             <TextView
                 android:id="@+id/rectangleTutorial2"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:background="@color/DARKBLUE"
                 android:padding="5dp"
-                android:layout_marginTop="5dp"
                 android:text="2. Stand with shoulder length between your feet."
                 android:textColor="@color/MINTWHITEd"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:visibility="visible" />
 
             <TextView
                 android:id="@+id/rectangleTutorial3"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:background="@color/DARKBLUE"
                 android:padding="5dp"
-                android:layout_marginTop="5dp"
                 android:text="3. When turning, tilt the phone to the side you want to turn."
                 android:textColor="@color/MINTWHITEd"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:visibility="visible" />
 
             <TextView
                 android:id="@+id/rectangleTutorial4"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:background="@color/DARKBLUE"
                 android:padding="5dp"
-                android:layout_marginTop="5dp"
                 android:text="4. Stay alert on the messages appearing on screen."
                 android:textColor="@color/MINTWHITEd"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -140,6 +141,7 @@
 
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
