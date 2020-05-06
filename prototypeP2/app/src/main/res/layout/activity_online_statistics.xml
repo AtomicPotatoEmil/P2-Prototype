@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="360dp"
         android:background="@color/RED"
         android:gravity="center"
         android:text="WINRATE"
@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="415dp"
         android:background="@color/DARKBLUE"
         android:gravity="center"
         android:text="52%"
@@ -83,6 +83,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/matchHistoryPanel">
 
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -985,6 +988,7 @@
                     tools:ignore="RtlCompat" />
             </LinearLayout>
         </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 

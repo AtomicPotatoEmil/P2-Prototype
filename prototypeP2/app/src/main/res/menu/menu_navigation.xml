@@ -4,16 +4,16 @@
     <item
         android:id="@+id/GameActivities"
         android:title="GameActivities"
-        android:icon="@drawable/ic_dashboard"/>
+        android:icon="@drawable/ic_game"/>
 
     <item
         android:id="@+id/OnlineStatistics"
         android:title="Online Statistics"
-        android:icon="@drawable/ic_dashboard"/>
+        android:icon="@drawable/ic_statistics"/>
 
     <item
         android:id="@+id/Social"
         android:title="Social"
-        android:icon="@drawable/ic_dashboard"/>
+        android:icon="@drawable/ic_social"/>
 
 </menu>
