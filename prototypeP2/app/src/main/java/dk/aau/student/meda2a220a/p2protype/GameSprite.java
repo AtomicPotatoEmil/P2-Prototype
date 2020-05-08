@@ -37,4 +37,8 @@ public class GameSprite {
         return this.type;
     }
 
+    public int getY(){
+        return this.y;
+    }
+
 }

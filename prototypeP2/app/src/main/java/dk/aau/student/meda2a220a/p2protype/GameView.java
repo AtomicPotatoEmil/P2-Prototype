@@ -19,6 +19,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private String [] obstacleTypes;
     private int obstacleTypesIndex;
     private ArrayList<GameSprite> obstacles;
+    private ArrayList<GameSprite> obstaclesToRemove;
 
     public GameView(Context context) {
         super(context);
@@ -45,8 +46,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         obstacleSpawnTimer.scheduleAtFixedRate(obstacleTimerTask, 3000, 1000);
 
         background = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.baggrund), 0, 0, 1920, 1080, "");
-        obstacleTypes = new String[] {"duck", "jumpRight", "jumpLeft"};
+        obstacleTypes = new String[] {"duck", "jumpRight", "jumpLeft", "jump"};
         obstacles = new ArrayList<GameSprite>();
+        obstaclesToRemove = new ArrayList<GameSprite>();
     }
 
     @Override
@@ -67,7 +69,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
-
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
@@ -78,8 +79,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void update(){
-        if (obstacleSpawnWaitTime > 4){
-            obstacleTypesIndex = (int) (Math.random() * 3);
+        if (obstacleSpawnWaitTime > 5){
+            obstacleTypesIndex = (int) (Math.random() * 4);
             switch (obstacleTypes[obstacleTypesIndex]){
                 case "duck":
                     obstacles.add(new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.jumpunder), 400, -200, 1800, 1000, "duck"));
@@ -90,6 +91,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 case "jumpLeft":
                     obstacles.add(new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.stenhoijre), 300, -250, 1000, 1000, "jumpLeft"));
                     break;
+                case "jump":
+                    obstacles.add(new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.treelog), 620, 100, 700, 700, "jump"));
             }
             obstacleSpawnWaitTime = 0;
         }
@@ -107,8 +110,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 case "jumpLeft":
                     obstacle.moveY(5);
                     obstacle.moveX(3);
+                    break;
+                case "jump":
+                    obstacle.moveY(5);
+                    break;
             }
-
+            if (obstacle.getY() > 1080){
+                obstaclesToRemove.add(obstacle);
+            }
         }
+
+        obstacles.removeAll(obstaclesToRemove);
     }
 }
