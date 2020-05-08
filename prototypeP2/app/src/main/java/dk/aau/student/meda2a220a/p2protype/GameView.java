@@ -3,6 +3,10 @@ package dk.aau.student.meda2a220a.p2protype;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -21,12 +25,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private ArrayList<GameSprite> obstacles;
     private ArrayList<GameSprite> obstaclesToRemove;
 
+    private String currentObstacle;
+
+    private SensorManager accelerationManager;
+    private Sensor accelerationSensor;
+    private int accelerationY;
+    private int accelerationX;
+
     public GameView(Context context) {
         super(context);
 
         getHolder().addCallback(this);
         thread = new GameThread(getHolder(), this);
         setFocusable(true);
+
+        accelerationManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        accelerationSensor = accelerationManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
     }
 
     TimerTask obstacleTimerTask = new TimerTask() {
@@ -36,6 +50,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             System.out.println(obstacleSpawnWaitTime);
         }
     };
+
 
 
     @Override
@@ -49,6 +64,23 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         obstacleTypes = new String[] {"duck", "jumpRight", "jumpLeft", "jump"};
         obstacles = new ArrayList<GameSprite>();
         obstaclesToRemove = new ArrayList<GameSprite>();
+
+        currentObstacle = "none";
+
+        SensorEventListener accelerationListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                accelerationY = (int) event.values[0];
+                accelerationX = (int) event.values[1];
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        accelerationManager.registerListener(accelerationListener, accelerationSensor, SensorManager.SENSOR_DELAY_FASTEST);
+
     }
 
     @Override
@@ -76,23 +108,48 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         for (GameSprite obstacle : obstacles){
             obstacle.draw(canvas);
         }
+        switch (currentObstacle){
+            case "tree":
+                GameSprite arrowDown = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_down_red), 700, 150, 500, 500, "");
+                arrowDown.draw(canvas);
+                break;
+            case "stoneLeft":
+                GameSprite arrowRight = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_right_red), 700, 150, 500, 500, "");
+                arrowRight.draw(canvas);
+                break;
+            case "stoneRight":
+                GameSprite arrowLeft = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_left_red), 700, 150, 500, 500, "");
+                arrowLeft.draw(canvas);
+                break;
+            case "treeLog":
+                GameSprite arrowUp = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_up_red), 700, 150, 500, 500, "");
+                arrowUp.draw(canvas);
+                break;
+            default:
+                return;
+        }
     }
 
     public void update(){
-        if (obstacleSpawnWaitTime > 5){
+        if (obstacleSpawnWaitTime > 6){
             obstacleTypesIndex = (int) (Math.random() * 4);
             switch (obstacleTypes[obstacleTypesIndex]){
                 case "duck":
                     obstacles.add(new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.jumpunder), 400, -200, 1800, 1000, "duck"));
+                    currentObstacle = "tree";
                     break;
                 case "jumpRight":
                     obstacles.add(new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.stenvenstre), 600, -200, 1000, 1000, "jumpRight"));
+                    currentObstacle = "stoneLeft";
                     break;
                 case "jumpLeft":
                     obstacles.add(new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.stenhoijre), 300, -250, 1000, 1000, "jumpLeft"));
+                    currentObstacle = "stoneRight";
                     break;
                 case "jump":
                     obstacles.add(new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.treelog), 620, 100, 700, 700, "jump"));
+                    currentObstacle = "treeLog";
+                    break;
             }
             obstacleSpawnWaitTime = 0;
         }
@@ -100,24 +157,46 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         for (GameSprite obstacle : obstacles){
             switch (obstacle.getType()){
                 case "duck":
-                    obstacle.moveY(5);
-                    obstacle.moveX(-5);
+                    obstacle.moveY(8);
+                    obstacle.moveX(-8);
                     break;
                 case "jumpRight":
-                    obstacle.moveY(5);
-                    obstacle.moveX(-4);
+                    obstacle.moveY(8);
+                    obstacle.moveX(-7);
                     break;
                 case "jumpLeft":
-                    obstacle.moveY(5);
-                    obstacle.moveX(3);
+                    obstacle.moveY(8);
+                    obstacle.moveX(7);
                     break;
                 case "jump":
-                    obstacle.moveY(5);
+                    obstacle.moveY(8);
                     break;
             }
             if (obstacle.getY() > 1080){
                 obstaclesToRemove.add(obstacle);
+                currentObstacle = "none";
             }
+
+            if (obstacle.getType().equals("duck") && accelerationY > 4){
+                obstaclesToRemove.add(obstacle);
+                currentObstacle = "none";
+            }
+            if (obstacle.getType().equals("jumpRight") && accelerationX > 4){
+                obstaclesToRemove.add(obstacle);
+                currentObstacle = "none";
+            }
+            if (obstacle.getType().equals("jumpLeft") && accelerationX < -4){
+                obstaclesToRemove.add(obstacle);
+                currentObstacle = "none";
+            }
+            if (obstacle.getType().equals("jump") && accelerationY < -4){
+                obstaclesToRemove.add(obstacle);
+                currentObstacle = "none";
+            }
+
+            //System.out.println("acc X "+ accelerationX);
+            System.out.println("acc Y "+ accelerationY);
+
         }
 
         obstacles.removeAll(obstaclesToRemove);
