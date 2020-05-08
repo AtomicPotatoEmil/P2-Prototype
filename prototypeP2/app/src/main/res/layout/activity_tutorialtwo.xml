@@ -35,14 +35,14 @@
             android:visibility="visible" />
 
         <Button
-            android:id="@+id/tutorialButtonNext"
+            android:id="@+id/tutorialTwoButtonPlay"
             android:layout_width="285dp"
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
             android:background="@color/CADETBLUE"
             android:gravity="center"
-            android:text="NEXT"
+            android:text="PLAY"
             android:textColor="@color/MINTWHITEd"
             android:textSize="45dp"
             android:textStyle="bold" />

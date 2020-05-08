@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Tutorial"
             android:screenOrientation="landscape" />
+        <activity android:name=".TutorialTwo"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".InitiateGameActivity"
             android:screenOrientation="landscape" />
