@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
+    <ImageView
         android:id="@+id/rectangle_at_the_top4"
         android:layout_width="285dp"
         android:layout_height="208dp"
@@ -50,9 +50,7 @@
         android:background="@color/DARKBLUE"
         android:gravity="center"
         android:layout_marginLeft="10dp"
-        android:text="ILLUSTRATION OF HOW TO PLAY"
-        android:textColor="@color/MINTWHITEd"
-        android:textSize="45dp"
+        android:src="@drawable/howto"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/tutorialButtonPlay"
         app:layout_constraintEnd_toEndOf="parent"
