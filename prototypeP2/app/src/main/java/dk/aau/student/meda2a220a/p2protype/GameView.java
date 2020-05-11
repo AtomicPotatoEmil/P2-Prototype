@@ -215,24 +215,24 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             }
 
             if (obstacle.getType().equals("duck") && accelerationY > 6){
+                obstaclesDodged += 1;
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
-                obstaclesDodged += 1;
             }
             if (obstacle.getType().equals("jumpRight") && accelerationX > 6){
+                obstaclesDodged += 1;
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
-                obstaclesDodged += 1;
             }
             if (obstacle.getType().equals("jumpLeft") && accelerationX < -6){
+                obstaclesDodged += 1;
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
-                obstaclesDodged += 1;
             }
             if (obstacle.getType().equals("jump") && accelerationY < -6){
+                obstaclesDodged += 1;
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
-                obstaclesDodged += 1;
             }
 
             //System.out.println("acc X "+ accelerationX);
