@@ -183,7 +183,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
         canvas.drawText("Dodged: "+(obstaclesDodged), 100, 100, paint);
         canvas.drawText("Hit: "+(obstaclesHit), 100, 200, paint);
-        canvas.drawText("Steps: "+(stepsTaken)+"/100", 1420, 100, paint);
+        canvas.drawText("Steps: "+(stepsTaken)+"/100", 1320, 100, paint);
         switch (currentObstacle){
             case "tree":
                 GameSprite arrowDown = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_down_red), 700, 150, 500, 500, "");
