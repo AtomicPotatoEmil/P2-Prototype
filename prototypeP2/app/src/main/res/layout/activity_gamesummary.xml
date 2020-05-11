@@ -37,8 +37,9 @@
         android:layout_below="@id/BestGameHeader">
 
         <ScrollView
+            android:id="@+id/BestGameScrollView"
             android:layout_width="wrap_content"
-            android:layout_height="250dp">
+            android:layout_height="100dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -279,6 +280,17 @@
         </ScrollView>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/GameSummaryNextButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="NEXT"
+        android:background="@color/CADETBLUE"
+        android:layout_marginTop="100dp"
+        android:textSize="18sp"
+        android:textColor="@color/MINTWHITEd"
+        android:layout_below="@id/BestGameHeader" />
 
     <View
         android:id="@+id/rectangle_at_the_top"
