@@ -41,6 +41,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     private int obstaclesDodged = 0;
     private int obstaclesHit = 0;
+    private int stepsTaken = 0;
 
     public GameView(Context context) {
         super(context);
@@ -53,7 +54,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         accelerationSensor = accelerationManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 
         stepManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        stepSensor = stepManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
+        stepSensor = stepManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
     }
 
     TimerTask obstacleTimerTask = new TimerTask() {
@@ -94,10 +95,25 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         };
         accelerationManager.registerListener(accelerationListener, accelerationSensor, SensorManager.SENSOR_DELAY_FASTEST);
 
+        SensorEventListener stepListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                stepsTaken += 1;
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+
+        };
+        stepManager.registerListener(stepListener, stepSensor, SensorManager.SENSOR_DELAY_FASTEST);
+
         paint = new Paint();
         paint.setColor(Color.rgb(255, 255, 255));
         paint.setTextSize(70);
     }
+
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -126,6 +142,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
         canvas.drawText("Dodged: "+String.valueOf(obstaclesDodged), 100, 100, paint);
         canvas.drawText("Hit: "+String.valueOf(obstaclesHit), 100, 200, paint);
+        canvas.drawText(String.valueOf(stepsTaken), 1820, 100, paint);
         switch (currentObstacle){
             case "tree":
                 GameSprite arrowDown = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_down_red), 700, 150, 500, 500, "");
@@ -197,22 +214,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 currentObstacle = "none";
             }
 
-            if (obstacle.getType().equals("duck") && accelerationY > 4){
+            if (obstacle.getType().equals("duck") && accelerationY > 10){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
                 obstaclesDodged += 1;
             }
-            if (obstacle.getType().equals("jumpRight") && accelerationX > 4){
+            if (obstacle.getType().equals("jumpRight") && accelerationX > 10){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
                 obstaclesDodged += 1;
             }
-            if (obstacle.getType().equals("jumpLeft") && accelerationX < -4){
+            if (obstacle.getType().equals("jumpLeft") && accelerationX < -10){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
                 obstaclesDodged += 1;
             }
-            if (obstacle.getType().equals("jump") && accelerationY < -4){
+            if (obstacle.getType().equals("jump") && accelerationY < -10){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
                 obstaclesDodged += 1;
