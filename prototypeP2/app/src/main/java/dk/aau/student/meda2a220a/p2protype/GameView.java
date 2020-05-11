@@ -1,6 +1,7 @@
 package dk.aau.student.meda2a220a.p2protype;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -19,7 +20,7 @@ import java.util.TimerTask;
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private GameThread thread;
     private Timer obstacleSpawnTimer;
-    private int obstacleSpawnWaitTime = 3;
+    private int obstacleSpawnWaitTime;
     private GameSprite background;
 
     private String [] obstacleTypes;
@@ -39,9 +40,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     private Paint paint;
 
-    private int obstaclesDodged = 0;
-    private int obstaclesHit = 0;
-    private int stepsTaken = 0;
+    private int obstaclesDodged;
+    private int obstaclesHit;
+    private int stepsTaken;
+
+    private SharedPreferences save;
+    private SharedPreferences.Editor editSave;
+
+    private int time;
+    private Timer timer;
+
 
     public GameView(Context context) {
         super(context);
@@ -55,6 +63,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         stepManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         stepSensor = stepManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+        this.save = context.getSharedPreferences("statistics", Context.MODE_PRIVATE);
     }
 
     TimerTask obstacleTimerTask = new TimerTask() {
@@ -62,6 +72,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         public void run() {
             obstacleSpawnWaitTime++;
             System.out.println(obstacleSpawnWaitTime);
+        }
+    };
+
+    TimerTask timerTask = new TimerTask() {
+        @Override
+        public void run() {
+            time++;
+            editSave = save.edit();
+            editSave.putInt("time", time);
+            editSave.apply();
         }
     };
 
@@ -73,6 +93,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         thread.start();
         obstacleSpawnTimer = new Timer();
         obstacleSpawnTimer.scheduleAtFixedRate(obstacleTimerTask, 1000, 1000);
+        obstacleSpawnWaitTime = 2;
 
         background = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.baggrund), 0, 0, 1920, 1080, "");
         obstacleTypes = new String[] {"duck", "jumpRight", "jumpLeft", "jump"};
@@ -112,6 +133,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         paint = new Paint();
         paint.setColor(Color.rgb(255, 255, 255));
         paint.setTextSize(70);
+
+        obstaclesDodged = 0;
+        obstaclesHit = 0;
+        stepsTaken = 0;
+
+        editSave = save.edit();
+        editSave.putInt("obstaclesDodged", obstaclesDodged);
+        editSave.putInt("obstaclesHit", obstaclesHit);
+        editSave.putInt("time", time);
+        editSave.apply();
+
+        timer = new Timer();
+        timer.scheduleAtFixedRate(timerTask,1000, 1000);
+
     }
 
 
@@ -142,7 +177,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
         canvas.drawText("Dodged: "+String.valueOf(obstaclesDodged), 100, 100, paint);
         canvas.drawText("Hit: "+String.valueOf(obstaclesHit), 100, 200, paint);
-        canvas.drawText(String.valueOf(stepsTaken), 1720, 100, paint);
+        canvas.drawText("Steps: "+String.valueOf(stepsTaken)+"/200", 1420, 100, paint);
         switch (currentObstacle){
             case "tree":
                 GameSprite arrowDown = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_down_red), 700, 150, 500, 500, "");
@@ -210,27 +245,43 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             }
             if (obstacle.getY() > 1080){
                 obstaclesHit += 1;
+                editSave = save.edit();
+                editSave.putInt("obstaclesHit", obstaclesHit);
+                editSave.apply();
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
             }
 
             if (obstacle.getType().equals("duck") && accelerationY > 6){
                 obstaclesDodged += 1;
+                editSave = save.edit();
+                editSave.putInt("obstaclesDodged", obstaclesDodged);
+                editSave.apply();
+                obstaclesToRemove.add(obstacle);
+                currentObstacle = "none";
+
+            }
+            if (obstacle.getType().equals("jumpRight") && accelerationX > 4){
+                obstaclesDodged += 1;
+                editSave = save.edit();
+                editSave.putInt("obstaclesDodged", obstaclesDodged);
+                editSave.apply();
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
             }
-            if (obstacle.getType().equals("jumpRight") && accelerationX > 6){
+            if (obstacle.getType().equals("jumpLeft") && accelerationX < -4){
                 obstaclesDodged += 1;
-                obstaclesToRemove.add(obstacle);
-                currentObstacle = "none";
-            }
-            if (obstacle.getType().equals("jumpLeft") && accelerationX < -6){
-                obstaclesDodged += 1;
+                editSave = save.edit();
+                editSave.putInt("obstaclesDodged", obstaclesDodged);
+                editSave.apply();
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
             }
             if (obstacle.getType().equals("jump") && accelerationY < -6){
                 obstaclesDodged += 1;
+                editSave = save.edit();
+                editSave.putInt("obstaclesDodged", obstaclesDodged);
+                editSave.apply();
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
             }
