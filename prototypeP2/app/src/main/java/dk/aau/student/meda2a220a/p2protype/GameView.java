@@ -71,7 +71,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         thread.setGameActive(true);
         thread.start();
         obstacleSpawnTimer = new Timer();
-        obstacleSpawnTimer.scheduleAtFixedRate(obstacleTimerTask, 3000, 1000);
+        obstacleSpawnTimer.scheduleAtFixedRate(obstacleTimerTask, 1000, 1000);
 
         background = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.baggrund), 0, 0, 1920, 1080, "");
         obstacleTypes = new String[] {"duck", "jumpRight", "jumpLeft", "jump"};
@@ -150,7 +150,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void update(){
-        if (obstacleSpawnWaitTime > 6){
+        if (obstacleSpawnWaitTime > 4){
             obstacleTypesIndex = (int) (Math.random() * 4);
             switch (obstacleTypes[obstacleTypesIndex]){
                 case "duck":
@@ -176,19 +176,19 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         for (GameSprite obstacle : obstacles){
             switch (obstacle.getType()){
                 case "duck":
-                    obstacle.moveY(8);
-                    obstacle.moveX(-8);
+                    obstacle.moveY(21);
+                    obstacle.moveX(-21);
                     break;
                 case "jumpRight":
-                    obstacle.moveY(8);
-                    obstacle.moveX(-7);
+                    obstacle.moveY(21);
+                    obstacle.moveX(-20);
                     break;
                 case "jumpLeft":
-                    obstacle.moveY(8);
-                    obstacle.moveX(7);
+                    obstacle.moveY(21);
+                    obstacle.moveX(20);
                     break;
                 case "jump":
-                    obstacle.moveY(8);
+                    obstacle.moveY(21);
                     break;
             }
             if (obstacle.getY() > 1080){
