@@ -20,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class GameActivities extends AppCompatActivity {
 
     private Button playButtonOne;
+    private Button playButtonTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class GameActivities extends AppCompatActivity {
         InitializeProgressBars();
 
         Button playButtonOne = (Button) findViewById(R.id.playButtonOne);
+        Button playButtonTwo = (Button) findViewById(R.id.playButtonTwo);
 
         Spinner dropDownMenuOne = (Spinner) findViewById(R.id.dropDownMenuOne);
         Spinner dropDownMenuTwo = (Spinner) findViewById(R.id.dropDownMenuTwo);
@@ -47,6 +49,15 @@ public class GameActivities extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(GameActivities.this, Tutorial.class));
 
+            }
+        });
+
+
+
+        playButtonTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GameActivities.this, GameSummary.class));
             }
         });
 

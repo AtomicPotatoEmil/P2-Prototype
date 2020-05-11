@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:background="@color/JET"
+    tools:context=".GameActivities">
+
+    <TextView
+        android:id="@+id/BestGameHeader"
+        android:layout_below="@+id/matchHistoryLayout"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="200dp"
+        android:background="@color/RED"
+        android:gravity="center"
+        android:text="BEST GAME"
+        android:textColor="@color/MINTWHITEd"
+        android:textSize="25sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/BestGamePanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/BestGameHeader">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/BestGameTitle"
+                        android:layout_width="110dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="MATCH NUMBER"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/BestGameHits"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="HITS"
+                        android:textAlignment="center"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/BestGameDodges"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="DODGES"
+                        android:textAlignment="center"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="TIME"
+                        android:textAlignment="center"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="350dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="350dp"
+                        android:layout_height="8dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/EVENDARKERBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="350dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/BestGameActivity"
+                        android:layout_width="110dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="BEST GAME ACTIVITY"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/BestGameHitsView"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="N/A"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/BestGameDodgesView"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="N/A"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/BestGameTimeView"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="N/A"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/rectangle_at_the_top"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/CADETBLUE"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="GAME SUMMARY"
+        android:textColor="@color/MINTWHITEd"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_at_the_top"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/matchHistoryLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/matchHistoryPanel">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/MatchTitle1"
+                        android:layout_width="110dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="MATCH NUMBER"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="HITS"
+                        android:textAlignment="center"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="DODGES"
+                        android:textAlignment="center"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="TIME"
+                        android:textAlignment="center"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="350dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="350dp"
+                        android:layout_height="8dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/EVENDARKERBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="350dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="Activity Placeholder"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/RecentGameHitsView"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="N/A"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/RecentGameDodgesView"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="N/A"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/RecentGameTimeView"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@color/DARKBLUE"
+                        android:gravity="center"
+                        android:text="N/A"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/MINTWHITEd"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/CADETBLUE"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_navigation">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <TextView
+        android:id="@+id/matchHistoryPanel"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/RED"
+        android:gravity="center"
+        android:text="STATISTICS"
+        android:textColor="@color/MINTWHITEd"
+        android:textSize="25sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</RelativeLayout>

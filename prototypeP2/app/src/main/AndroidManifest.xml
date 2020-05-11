@@ -16,6 +16,9 @@
         <activity android:name=".TutorialTwo"
             android:screenOrientation="landscape" />
         <activity
+            android:name=".GameSummary"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".InitiateGameActivity"
             android:screenOrientation="landscape" />
         <activity
