@@ -31,7 +31,7 @@
             android:layout_alignParentTop="true"
             android:background="@color/DARKBLUE"
             android:gravity="center"
-            android:src="@drawable/howto"
+            android:src="@drawable/tutorial_signals"
             android:visibility="visible" />
 
         <Button
@@ -128,7 +128,7 @@
     </LinearLayout>
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center"
