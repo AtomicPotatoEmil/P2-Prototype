@@ -193,19 +193,19 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         for (GameSprite obstacle : obstacles){
             switch (obstacle.getType()){
                 case "duck":
-                    obstacle.moveY(21);
-                    obstacle.moveX(-21);
+                    obstacle.moveY(11);
+                    obstacle.moveX(-11);
                     break;
                 case "jumpRight":
-                    obstacle.moveY(21);
-                    obstacle.moveX(-20);
+                    obstacle.moveY(11);
+                    obstacle.moveX(-10);
                     break;
                 case "jumpLeft":
-                    obstacle.moveY(21);
-                    obstacle.moveX(20);
+                    obstacle.moveY(11);
+                    obstacle.moveX(10);
                     break;
                 case "jump":
-                    obstacle.moveY(21);
+                    obstacle.moveY(11);
                     break;
             }
             if (obstacle.getY() > 1080){
