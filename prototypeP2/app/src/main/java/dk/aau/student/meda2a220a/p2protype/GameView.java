@@ -3,6 +3,8 @@ package dk.aau.student.meda2a220a.p2protype;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -32,6 +34,14 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int accelerationY;
     private int accelerationX;
 
+    private SensorManager stepManager;
+    private Sensor stepSensor;
+
+    private Paint paint;
+
+    private int obstaclesDodged = 0;
+    private int obstaclesHit = 0;
+
     public GameView(Context context) {
         super(context);
 
@@ -41,6 +51,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         accelerationManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         accelerationSensor = accelerationManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+
+        stepManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        stepSensor = stepManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
     }
 
     TimerTask obstacleTimerTask = new TimerTask() {
@@ -81,6 +94,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         };
         accelerationManager.registerListener(accelerationListener, accelerationSensor, SensorManager.SENSOR_DELAY_FASTEST);
 
+        paint = new Paint();
+        paint.setColor(Color.rgb(255, 255, 255));
+        paint.setTextSize(70);
     }
 
     @Override
@@ -108,6 +124,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         for (GameSprite obstacle : obstacles){
             obstacle.draw(canvas);
         }
+        canvas.drawText("Dodged: "+String.valueOf(obstaclesDodged), 100, 100, paint);
+        canvas.drawText("Hit: "+String.valueOf(obstaclesHit), 100, 200, paint);
         switch (currentObstacle){
             case "tree":
                 GameSprite arrowDown = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_down_red), 700, 150, 500, 500, "");
@@ -128,6 +146,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             default:
                 return;
         }
+
     }
 
     public void update(){
@@ -173,6 +192,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     break;
             }
             if (obstacle.getY() > 1080){
+                obstaclesHit += 1;
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
             }
@@ -180,18 +200,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             if (obstacle.getType().equals("duck") && accelerationY > 4){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
+                obstaclesDodged += 1;
             }
             if (obstacle.getType().equals("jumpRight") && accelerationX > 4){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
+                obstaclesDodged += 1;
             }
             if (obstacle.getType().equals("jumpLeft") && accelerationX < -4){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
+                obstaclesDodged += 1;
             }
             if (obstacle.getType().equals("jump") && accelerationY < -4){
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
+                obstaclesDodged += 1;
             }
 
             //System.out.println("acc X "+ accelerationX);
