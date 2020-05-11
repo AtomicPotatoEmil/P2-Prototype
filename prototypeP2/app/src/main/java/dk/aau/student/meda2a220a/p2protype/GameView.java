@@ -1,6 +1,7 @@
 package dk.aau.student.meda2a220a.p2protype;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -50,6 +51,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int time;
     private Timer timer;
 
+    private Context context;
+    private Intent intent;
 
     public GameView(Context context) {
         super(context);
@@ -65,6 +68,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         stepSensor = stepManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
         this.save = context.getSharedPreferences("statistics", Context.MODE_PRIVATE);
+
+        this.context = context;
+        intent = new Intent(context, GameSummary.class);
     }
 
     TimerTask obstacleTimerTask = new TimerTask() {
@@ -177,7 +183,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
         canvas.drawText("Dodged: "+(obstaclesDodged), 100, 100, paint);
         canvas.drawText("Hit: "+(obstaclesHit), 100, 200, paint);
-        canvas.drawText("Steps: "+(stepsTaken)+"/200", 1420, 100, paint);
+        canvas.drawText("Steps: "+(stepsTaken)+"/100", 1420, 100, paint);
         switch (currentObstacle){
             case "tree":
                 GameSprite arrowDown = new GameSprite(BitmapFactory.decodeResource(getResources(), R.drawable.arrow_down_red), 700, 150, 500, 500, "");
@@ -292,5 +298,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         obstacles.removeAll(obstaclesToRemove);
+
+        if (stepsTaken >= 100) {
+            context.startActivity(intent);
+        }
     }
 }
