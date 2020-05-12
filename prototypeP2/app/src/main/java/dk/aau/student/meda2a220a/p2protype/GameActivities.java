@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,18 +22,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameActivities extends AppCompatActivity {
 
     private Button playButtonOne;
     private Button playButtonTwo;
 
-    String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-    //SharedPreferences prefs = getSharedPreferences("statistics", Context.MODE_PRIVATE);
-    //int time = prefs.getInt("time", 0);
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -54,7 +57,6 @@ public class GameActivities extends AppCompatActivity {
         dropDownMenuOne.setAdapter(myAdapter);
         dropDownMenuTwo.setAdapter(myAdapter);
         dropDownMenuThree.setAdapter(myAdapter);
-
 
         playButtonOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,8 +98,13 @@ public class GameActivities extends AppCompatActivity {
         });
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void InitializeProgressBars() {
+
+        SharedPreferences prefs = getSharedPreferences("statistics", Context.MODE_PRIVATE);
+        int time = prefs.getInt("time", 0);
+
         ProgressBar progressBarMo = (ProgressBar) findViewById(R.id.progressBarMo);
         ProgressBar progressBarTu = (ProgressBar) findViewById(R.id.progressBarTu);
         ProgressBar progressBarWe = (ProgressBar) findViewById(R.id.progressBarWe);
@@ -106,13 +113,14 @@ public class GameActivities extends AppCompatActivity {
         ProgressBar progressBarSa = (ProgressBar) findViewById(R.id.progressBarSa);
         ProgressBar progressBarSu = (ProgressBar) findViewById(R.id.progressBarSu);
 
-        progressBarMo.setProgress(10);
-        progressBarTu.setProgress(20);
-        progressBarWe.setProgress(30);
-        progressBarTh.setProgress(40);
-        progressBarFr.setProgress(50);
-        progressBarSa.setProgress(60);
-        progressBarSu.setProgress(70);
+        progressBarMo.setProgress((time+500)/60);
+        progressBarTu.setProgress((time+1000)/60);
+        progressBarWe.setProgress((time+1500)/60);
+        progressBarTh.setProgress((time+2000)/60);
+        progressBarFr.setProgress((time+2500)/60);
+        progressBarSa.setProgress((time+3000)/60);
+        progressBarSu.setProgress((time+3500)/60);
+
 
         if (progressBarMo.getProgress() <= 30) {
             progressBarMo.setProgressTintList(ColorStateList.valueOf(Color.RED));
@@ -169,6 +177,5 @@ public class GameActivities extends AppCompatActivity {
         } else if (progressBarSu.getProgress() >= 60) {
             progressBarSu.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
         }
-
     }
 }
