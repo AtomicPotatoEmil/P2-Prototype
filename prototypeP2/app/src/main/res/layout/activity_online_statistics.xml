@@ -99,14 +99,14 @@
 
                 <TextView
                     android:id="@+id/textTitleOneActivity"
-                    android:layout_width="190dp"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:text="MATCH AGAINST"
+                    android:text="GAMEMODE"
                     android:textAlignment="textStart"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -126,7 +126,7 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="TIME"
+                    android:text="HITS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -146,7 +146,27 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="RESULT"
+                    android:text="DODGES"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime2"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="TIME IN SECONDS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -166,7 +186,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="190dp"
+                    android:id="@+id/GameOneMode"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:background="@color/DARKBLUE"
@@ -183,7 +204,7 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameOneHits"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -201,8 +222,193 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameOneDodges"
                     android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameOneTime"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textTitleOneActivity"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="GAMEMODE"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneIntensity"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="HITS"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="DODGES"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime4"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="TIME IN SECONDS"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/GameTwoMode"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="Activity Placeholder"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameTwoHits"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameTwoDodges"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameTwoTime"
+                    android:layout_width="90dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1"
@@ -226,14 +432,14 @@
 
                 <TextView
                     android:id="@+id/textTitleOneActivity"
-                    android:layout_width="190dp"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:text="MATCH AGAINST"
+                    android:text="GAMEMODE"
                     android:textAlignment="textStart"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -253,7 +459,7 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="TIME"
+                    android:text="HITS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -273,7 +479,27 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="RESULT"
+                    android:text="DODGES"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime5"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="TIME IN SECONDS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -293,7 +519,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="190dp"
+                    android:id="@+id/GameThreeMode"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:background="@color/DARKBLUE"
@@ -310,7 +537,7 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameThreeHits"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -328,8 +555,26 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameThreeDodges"
                     android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameThreeTime"
+                    android:layout_width="90dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1"
@@ -353,14 +598,14 @@
 
                 <TextView
                     android:id="@+id/textTitleOneActivity"
-                    android:layout_width="190dp"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:text="MATCH AGAINST"
+                    android:text="GAMEMODE"
                     android:textAlignment="textStart"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -380,7 +625,7 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="TIME"
+                    android:text="HITS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -400,7 +645,27 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="RESULT"
+                    android:text="DODGES"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime6"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="TIME IN SECONDS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -420,7 +685,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="190dp"
+                    android:id="@+id/GameFourMode"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:background="@color/DARKBLUE"
@@ -437,7 +703,7 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameFourHits"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -455,8 +721,26 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameFourDodges"
                     android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameFourTime"
+                    android:layout_width="90dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1"
@@ -480,14 +764,14 @@
 
                 <TextView
                     android:id="@+id/textTitleOneActivity"
-                    android:layout_width="190dp"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:text="MATCH AGAINST"
+                    android:text="GAMEMODE"
                     android:textAlignment="textStart"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -507,7 +791,7 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="TIME"
+                    android:text="HITS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -527,7 +811,27 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="RESULT"
+                    android:text="DODGES"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime7"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="TIME IN SECONDS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -547,7 +851,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="190dp"
+                    android:id="@+id/GameFiveMode"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:background="@color/DARKBLUE"
@@ -564,7 +869,7 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameFiveHits"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -582,8 +887,26 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameFiveDodges"
                     android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameFiveTime"
+                    android:layout_width="90dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1"
@@ -607,14 +930,14 @@
 
                 <TextView
                     android:id="@+id/textTitleOneActivity"
-                    android:layout_width="190dp"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:text="MATCH AGAINST"
+                    android:text="GAMEMODE"
                     android:textAlignment="textStart"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -634,7 +957,7 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="TIME"
+                    android:text="HITS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -654,7 +977,27 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="RESULT"
+                    android:text="DODGES"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime8"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="TIME IN SECONDS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -674,7 +1017,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="190dp"
+                    android:id="@+id/GameSixMode"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:background="@color/DARKBLUE"
@@ -691,6 +1035,7 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
+                    android:id="@+id/GameSixHits"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -708,7 +1053,26 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
+                    android:id="@+id/GameSixDodges"
                     android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/GameSixTime"
+                    android:layout_width="90dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1"
@@ -732,14 +1096,14 @@
 
                 <TextView
                     android:id="@+id/textTitleOneActivity"
-                    android:layout_width="190dp"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:text="MATCH AGAINST"
+                    android:text="GAMEMODE"
                     android:textAlignment="textStart"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -759,7 +1123,7 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="TIME"
+                    android:text="HITS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -779,7 +1143,27 @@
                     android:layout_weight="1"
                     android:background="@color/DARKBLUE"
                     android:gravity="center"
-                    android:text="RESULT"
+                    android:text="DODGES"
+                    android:textAlignment="center"
+                    android:textColor="@color/MINTWHITEd"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textTitleOneTime9"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/DARKBLUE"
+                    android:gravity="center"
+                    android:text="TIME IN SECONDS"
                     android:textAlignment="center"
                     android:textColor="@color/MINTWHITEd"
                     android:textSize="10sp"
@@ -799,8 +1183,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/customActivityPanelOne"
-                    android:layout_width="190dp"
+                    android:id="@+id/GameSevenMode"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:background="@color/DARKBLUE"
@@ -817,7 +1201,7 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameSevenHits"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -835,117 +1219,7 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
-                    android:layout_width="80dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_weight="1"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:text="N/A"
-                    android:textAlignment="inherit"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textTitleOneActivity"
-                    android:layout_width="190dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:padding="3dp"
-                    android:text="MATCH AGAINST"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
-
-                <TextView
-                    android:id="@+id/textTitleOneIntensity"
-                    android:layout_width="80dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:text="TIME"
-                    android:textAlignment="center"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
-
-                <TextView
-                    android:id="@+id/textTitleOneTime"
-                    android:layout_width="80dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:text="RESULT"
-                    android:textAlignment="center"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/customActivityPanelOne"
-                    android:layout_width="190dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:background="@color/DARKBLUE"
-                    android:gravity="center"
-                    android:padding="3dp"
-                    android:text="Minecart Race"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/MINTWHITEd"
-                    android:textSize="10sp"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
-
-                <TextView
-                    android:id="@+id/customTimePanelOne"
+                    android:id="@+id/GameSevenDodges"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -963,8 +1237,8 @@
                     tools:ignore="RtlCompat" />
 
                 <TextView
-                    android:id="@+id/customTimePanelOne"
-                    android:layout_width="80dp"
+                    android:id="@+id/GameSevenTime"
+                    android:layout_width="90dp"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1"

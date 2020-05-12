@@ -39,8 +39,6 @@ public class GameSummary extends AppCompatActivity {
         TextView bestGameDodgesView = (TextView) findViewById(R.id.BestGameDodgesView);
         TextView bestGameTimeView = (TextView) findViewById(R.id.BestGameTimeView);
 
-        
-
         gameSummaryNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
