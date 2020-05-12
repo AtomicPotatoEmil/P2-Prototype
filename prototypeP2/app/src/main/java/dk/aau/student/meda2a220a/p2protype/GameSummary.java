@@ -17,16 +17,17 @@ public class GameSummary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamesummary);
 
+        // Instansiating sharedpreferences to use the time variable from the game view
         SharedPreferences prefs = getSharedPreferences("statistics", Context.MODE_PRIVATE);
         int obstaclesDodged = prefs.getInt("obstaclesDodged", 0);
         int obstaclesHit = prefs.getInt("obstaclesHit", 0);
         int time = prefs.getInt("time", 0);
 
-
-        // Buttons
+        // Initializes the button from the design view to use them via. code
         Button gameSummaryNextButton = (Button) findViewById(R.id.GameSummaryNextButton);
 
-        // Recent Game Views
+        // Initializes the 'recent game views' from the design view to use them via. code
+        // and sets the text to be the value of the above values from the sharedpreferences instantiations
         TextView recentGameHitsView = (TextView) findViewById(R.id.RecentGameHitsView);
         recentGameHitsView.setText(String.valueOf(obstaclesDodged));
         TextView recentGameDodgesView = (TextView) findViewById(R.id.RecentGameDodgesView);
