@@ -30,13 +30,16 @@ public class AddFriendDialog extends AppCompatDialogFragment {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             AlertDialog.Builder logBuilder = new AlertDialog.Builder(getActivity());
 
+            // Creates layout inflaters to make dialog views
             LayoutInflater logInflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
             View inflatedFriendView = logInflater.inflate(R.layout.addfrienddialog, null);
             View inflatedFriendViewTwo = logInflater.inflate(R.layout.addfriendattributes, null);
 
+            // Initializes text editors from the design view to use them via code
             editName = inflatedFriendView.findViewById(R.id.friendNameEditText);
             putFriendHere = inflatedFriendViewTwo.findViewById(R.id.putFriendHere);
 
+            // Sets the inflated view made above
             logBuilder.setView(inflatedFriendView)
                     .setTitle("Enter Username")
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
