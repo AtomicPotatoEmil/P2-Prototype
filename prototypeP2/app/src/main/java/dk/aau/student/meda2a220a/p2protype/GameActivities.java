@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,20 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class GameActivities extends AppCompatActivity {
-
-    private Button playButtonOne;
-    private Button playButtonTwo;
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -46,21 +31,28 @@ public class GameActivities extends AppCompatActivity {
         // Initializing views of the progress bars
         InitializeProgressBars();
 
+        // Initializes the buttons from the design view to be able to use them via code
         Button playButtonOne = (Button) findViewById(R.id.playButtonOne);
         Button playButtonTwo = (Button) findViewById(R.id.playButtonTwo);
 
+        // Initializes the drop down menus from the design view to be able to use them via code
         Spinner dropDownMenuOne = (Spinner) findViewById(R.id.dropDownMenuOne);
         Spinner dropDownMenuTwo = (Spinner) findViewById(R.id.dropDownMenuTwo);
         Spinner dropDownMenuThree = (Spinner) findViewById(R.id.dropDownMenuThree);
+
+        // Applys the custom layout to the drop down menus to make them fit accordingly
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(GameActivities.this, R.layout.spinner_item, getResources().getStringArray(R.array.dropDownMenuItems));
         myAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         dropDownMenuOne.setAdapter(myAdapter);
         dropDownMenuTwo.setAdapter(myAdapter);
         dropDownMenuThree.setAdapter(myAdapter);
 
+
+        // Makes the button clickable by adding a on-click listener to them
         playButtonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Switches the activity to Tutorial.class
                 startActivity(new Intent(GameActivities.this, Tutorial.class));
             }
         });
@@ -68,17 +60,19 @@ public class GameActivities extends AppCompatActivity {
         playButtonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Switches the activity to GameSummary.class
                 startActivity(new Intent(GameActivities.this, GameSummary.class));
             }
         });
 
+
+        // Handles the bottom navigation menu at the bottom of the application
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
         bottomNavigationView.setSelectedItemId(R.id.GameActivities);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                // Switch statement to determine which page we are currently on
                 switch (menuItem.getItemId()) {
                     case R.id.OnlineStatistics:
                         startActivity(new Intent(getApplicationContext()
@@ -102,9 +96,11 @@ public class GameActivities extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void InitializeProgressBars() {
 
+        // Instansiating sharedpreferences to use the time variable from the game view
         SharedPreferences prefs = getSharedPreferences("statistics", Context.MODE_PRIVATE);
         int time = prefs.getInt("time", 0);
 
+        // Initalizing the progressbars from the design view to use them via. code
         ProgressBar progressBarMo = (ProgressBar) findViewById(R.id.progressBarMo);
         ProgressBar progressBarTu = (ProgressBar) findViewById(R.id.progressBarTu);
         ProgressBar progressBarWe = (ProgressBar) findViewById(R.id.progressBarWe);
@@ -113,6 +109,8 @@ public class GameActivities extends AppCompatActivity {
         ProgressBar progressBarSa = (ProgressBar) findViewById(R.id.progressBarSa);
         ProgressBar progressBarSu = (ProgressBar) findViewById(R.id.progressBarSu);
 
+        // Setting the value of the progressbar to the time used in the game view + a preset value / 60 to get the
+        // value in minutes since time is seconds
         progressBarMo.setProgress((time+500)/60);
         progressBarTu.setProgress((time+1000)/60);
         progressBarWe.setProgress((time+1500)/60);
@@ -122,6 +120,9 @@ public class GameActivities extends AppCompatActivity {
         progressBarSu.setProgress((time+3500)/60);
 
 
+
+        // If statements to regulate the automatic color coding system used in the chart
+        // below 30 = red   ;   above 30 = yellow     ;   above 60 = green
         if (progressBarMo.getProgress() <= 30) {
             progressBarMo.setProgressTintList(ColorStateList.valueOf(Color.RED));
         } else if (progressBarMo.getProgress() > 30 && progressBarMo.getProgress() < 60) {
