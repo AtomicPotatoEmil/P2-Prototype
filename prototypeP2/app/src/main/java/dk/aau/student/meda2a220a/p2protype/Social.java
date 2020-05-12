@@ -25,31 +25,31 @@ import org.w3c.dom.Text;
 
 public class Social extends AppCompatActivity implements AddFriendDialog.AddFriendListener {
 
-public static final String profileNameSave = "PROFILENAMESAVE";
-public static final String profileSaveKey = "PROFILESAVEKEY";
+    // Variable definitions
 
+    public static final String profileNameSave = "PROFILENAMESAVE";
+    public static final String profileSaveKey = "PROFILESAVEKEY";
 
-private LinearLayout addFriendLayout;
-private Button addFriendButton;
-private EditText setProfileName;
-private Button saveNameButton;
-TextView putFriendName;
-private RelativeLayout social_Layout;
-
-
+    private LinearLayout addFriendLayout;
+    private Button addFriendButton;
+    private EditText setProfileName;
+    private Button saveNameButton;
+    TextView putFriendName;
+    private RelativeLayout social_Layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social);
 
+
+        // Handles the bottom navigation menu at the bottom of the application
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
         bottomNavigationView.setSelectedItemId(R.id.Social);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                // Switch statement to determine which page we are currently on
                 switch (menuItem.getItemId()) {
                     case R.id.OnlineStatistics:
                         startActivity(new Intent(getApplicationContext()
@@ -67,6 +67,8 @@ private RelativeLayout social_Layout;
                 return false;
             }
         });
+
+        // Initializes view from the deisgn view to be able to use them via code.
         putFriendName = findViewById(R.id.putFriendHere);
         social_Layout = findViewById(R.id.socialLayout);
 
@@ -88,25 +90,18 @@ private RelativeLayout social_Layout;
 
         });
         setProfileName = findViewById(R.id.YourUserName);
-
-
     }
-
 
     @Override
     protected void onStart() {
         super.onStart();
-
         loadUsername();
     }
 
     public void newFriend (){
         AddFriendDialog newFriendDialog = new AddFriendDialog();
         newFriendDialog.show(getSupportFragmentManager(), "New Friend");
-
-
     }
-
 
 
 //    public TextView createNewFriendView(String friendInfo, int textSize){ //Title being the exercise, and subtitle being the weight lifted.
@@ -124,17 +119,15 @@ private RelativeLayout social_Layout;
         inflater.inflate(R.layout.addfriendattributes, (ViewGroup) findViewById(R.id.FriendLayout));
         TextView putfriend = findViewById(R.id.putFriendHere);
         putfriend.setText(usernamestring);
-
-
-
     }
 
     @Override
     public void applyAddition(String userNameString) {
 //        addFriendLayout.addView(createNewFriendView(userNameString,20));
-
         test(userNameString);
     }
+
+    // Uses shared preferences in saveUsername and loadUsername in order to save and load variables
 
     private void saveUsername() {
 
@@ -144,8 +137,6 @@ private RelativeLayout social_Layout;
         editor.putString(profileSaveKey, setProfileName.getText().toString());
         editor.apply();
         Toast.makeText(this, "Profile name: "+setProfileName.getText().toString() + " saved!", Toast.LENGTH_LONG).show();
-
-
     }
     private void loadUsername(){
 
@@ -153,8 +144,6 @@ private RelativeLayout social_Layout;
         String prefSaveName = sharedPreferences.getString(profileSaveKey, getString(R.string.noUsername));
 
         setProfileName.setText(prefSaveName);
-
-
     }
 
 }
