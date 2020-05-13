@@ -267,7 +267,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 currentObstacle = "none";
 
             }
-            if (obstacle.getType().equals("jumpRight") && accelerationX > 4){
+            if (obstacle.getType().equals("jumpRight") && accelerationX > 3){
                 obstaclesDodged += 1;
                 editSave = save.edit();
                 editSave.putInt("obstaclesDodged", obstaclesDodged);
@@ -275,7 +275,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 obstaclesToRemove.add(obstacle);
                 currentObstacle = "none";
             }
-            if (obstacle.getType().equals("jumpLeft") && accelerationX < -4){
+            if (obstacle.getType().equals("jumpLeft") && accelerationX < -3){
                 obstaclesDodged += 1;
                 editSave = save.edit();
                 editSave.putInt("obstaclesDodged", obstaclesDodged);
