@@ -299,7 +299,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         obstacles.removeAll(obstaclesToRemove);
 
-        if (stepsTaken >= 100) {
+        if (stepsTaken >= 50) {
             context.startActivity(intent);
         }
     }

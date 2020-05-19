@@ -16,7 +16,6 @@ public class TutorialTwo extends AppCompatActivity {
         setContentView(R.layout.activity_tutorialtwo);
 
         Button button = (Button) findViewById(R.id.tutorialTwoButtonPlay);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

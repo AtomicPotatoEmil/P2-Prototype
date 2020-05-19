@@ -29,9 +29,9 @@ public class GameSummary extends AppCompatActivity {
         // Initializes the 'recent game views' from the design view to use them via. code
         // and sets the text to be the value of the above values from the sharedpreferences instantiations
         TextView recentGameHitsView = (TextView) findViewById(R.id.RecentGameHitsView);
-        recentGameHitsView.setText(String.valueOf(obstaclesDodged));
+        recentGameHitsView.setText(String.valueOf(obstaclesHit));
         TextView recentGameDodgesView = (TextView) findViewById(R.id.RecentGameDodgesView);
-        recentGameDodgesView.setText(String.valueOf(obstaclesHit));
+        recentGameDodgesView.setText(String.valueOf(obstaclesDodged));
         TextView recentGameTimeView = (TextView) findViewById(R.id.RecentGameTimeView);
         recentGameTimeView.setText(String.valueOf(time));
 

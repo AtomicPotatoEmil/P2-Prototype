@@ -117,7 +117,7 @@ public class GameActivities extends AppCompatActivity {
         progressBarTh.setProgress((time+2000)/60);
         progressBarFr.setProgress((time+2500)/60);
         progressBarSa.setProgress((time+3000)/60);
-        progressBarSu.setProgress((time+3500)/60);
+        progressBarSu.setProgress((time+4000)/60);
 
 
 
