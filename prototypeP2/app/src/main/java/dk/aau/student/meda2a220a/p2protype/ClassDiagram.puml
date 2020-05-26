@@ -1,0 +1,71 @@
+@startuml
+skinparam classAttributeIconSize 0
+class GameView{
+- surfaceHolder : SurfaceHolder
+- obstacleSpawnTimer : Timer
+- obstacleSpawnWaitTime : int
+- background : GameSprite
+- obstacleTypes : String[]
+- obstacleTypesIndex : int
+- obstacles : GameSprite[*]
+- obstaclesToRemove : GameSprite[*]
+- currentObstacle : String
+- accelerationManager : SensorManager
+- accelerationSensor : Sensor
+- accelerationY : int
+- accelerationX : int
+- stepManager : SensorManager
+- stepSensor : Sensor
+- paint : Paint
+- obstaclesDodged : int
+- obstaclesHit : int
+- stepsTaken : int
+- save : SharedPreferences
+- editSave : SharedPreferences.Editor
+- time : int
+- timer : Timer
+- context : Context
+- intent : Intent
+~ obstacleTimerTask : TimerTask
+~ timerTask : TimerTask
+--
++ GameView(context : Context)
++ SurfaceCreated(holder : SurfaceHolder)
++ SurfaceDestroyed(holder : SurfaceHolder)
++ draw(canvas : Canvas)
++ update()
+}
+
+GameThread o-- GameView
+
+class GameThread{
+- surfaceHolder : SurfaceHolder
+- gameView : GameView
+- gameActive : boolean
++ canvas : Canvas
+- targetFPS : double
+__
++ GameThread(surfaceHolder : SurfaceHolder, gameView GameView)
++ run()
++ setGameActive(isGameActive : boolean)
+}
+
+GameSprite "uses 1..*  " -- "   1" GameView
+
+class GameSprite{
+- image : Bitmap
+- x : int
+- y : int
+- width : int
+- height : int
+- type : String
+--
++ GameSprite(image : Bitmap, x : int, y : int, width : int, height : int, type : String)
++ draw(canvas Canvas)
++ moveX(speed : int)
++ moveY(speed : int)
++ getType() : String
++ getY() : int
+}
+
+@enduml
