@@ -208,7 +208,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void update(){
-        if (obstacleSpawnWaitTime > 4){
+        if (obstacleSpawnWaitTime > 2.5){
             obstacleTypesIndex = (int) (Math.random() * 4);
             switch (obstacleTypes[obstacleTypesIndex]){
                 case "duck":
@@ -234,19 +234,19 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         for (GameSprite obstacle : obstacles){
             switch (obstacle.getType()){
                 case "duck":
-                    obstacle.moveY(21);
-                    obstacle.moveX(-21);
+                    obstacle.moveY(31);
+                    obstacle.moveX(-31);
                     break;
                 case "jumpRight":
-                    obstacle.moveY(21);
-                    obstacle.moveX(-20);
+                    obstacle.moveY(31);
+                    obstacle.moveX(-30);
                     break;
                 case "jumpLeft":
-                    obstacle.moveY(21);
-                    obstacle.moveX(20);
+                    obstacle.moveY(31);
+                    obstacle.moveX(30);
                     break;
                 case "jump":
-                    obstacle.moveY(21);
+                    obstacle.moveY(31);
                     break;
             }
             if (obstacle.getY() > 1080){
